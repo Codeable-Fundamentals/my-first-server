@@ -28,12 +28,11 @@ const requestListener = (_req, response) => {
       if (note) {
         response.end(JSON.stringify(note));
       } else {
-        response.end(
-          JSON.stringify({
-            status: 404,
-            message: "No se encontro el item",
-          })
-        );
+        response.end(JSON.stringify({
+          code: 404,
+          message: "el ID es invalido",
+          errorID: "NOT_FOUND"
+        }));
       }
     } else {
       response.end(
